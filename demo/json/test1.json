@@ -1,0 +1,20 @@
+﻿{
+  "code": 0
+  ,"msg": ""
+  ,"data": {
+    "mine": {
+      "username": "ss"
+      ,"id": "97281"
+      ,"status": "online"
+      ,"sign": "在深邃的编码世界，做一枚轻盈的纸飞机"
+      ,"avatar": "http://cdn.firstlinkapp.com/upload/2016_6/1465575923433_33812.jpg"
+    }
+    ,"friend": [{
+      "groupname": "测试"
+      ,"id": 1
+      ,"online": 1
+      ,"list": []
+    }]
+   
+  }
+}

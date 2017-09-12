@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="../layui/css/layui.mobile.css">
+</head>
+<body>
+    <script src="../layui/layui.js"></script>
+     <script src="../js/mesData.js"></script>
+       <script src="../js/layChat.js"></script>
+<script>
+
+    layui.use('layim', function(layim) {
+        //默认添加好友
+        layim.on('ready', function(res) {
+            layim.addList({
+                type: 'friend',
+                avatar: "http://tp2.sinaimg.cn/2386568184/180/40050524279/0",
+                username: '测试',
+                groupid: 1,
+                id: "1233333312121212",
+                remark: "本人冲田杏梨将结束AV女优的工作"
+            });
+        });
+
+        //初始化一个窗体
+        layim.config({
+            init: {
+                url: "json/test1.json",
+                data: {}
+            }
+        });
+        laychat.open();
+       // var laychat = new laychat();
+    });
+    //    //建立WebSocket通讯
+    //    //注意：如果你要兼容ie8+，建议你采用 socket.io 的版本。下面是以原生WS为例
+    //    //初始化已经进行连接
+    //    websocket = new WebSocket("ws://192.168.8.90:20019/websocket");
+    //    //连接成功时触发
+    //    websocket.onopen = function () {
+    //        console.log("连接成功！");
+    //     //   websocket.send('XXX连接成功');
+    //        //登录成功
+    //        websocket.send(JSON.stringify({ "commandId": 3, "content": "{\"userName\": \"ipsa100OZEgBrKkCLmi7F7R1pUF8Q\",\"userPassword\":\"test\"}", "serviceId": 1 }));
+
+    //    };
+       
+    //    websocket.onmessage = function (evt) {
+    //        var data = evt.data;
+    //        //	alert("received message: " + data);
+    //        console.log("asa:"+data);
+    //        var resp = JSON.parse(data);
+    //        switch (resp.serviceId) {
+    //            case 1:
+    //                {
+    //                    if (resp.commandId == 3) {
+    //                        alert("login success, user info: " + resp.content);
+    //                        var user = JSON.parse(resp.content);
+    //                        userId = user.userId;
+    //                    }
+    //                }
+    //                break;
+    //            case 3:
+    //                {
+    //                    if (resp.commandId == 1) {
+    //                        console.log("content: " + resp.content);
+    //                        var msgResp = JSON.parse(resp.content);
+    //                        console.log(msgResp);
+    //                        var content = msgResp.fromId + ":" + msgResp.content;
+    //                        lastFromId = msgResp.fromId;
+    //                        var msg = JSON.parse(msgResp.content);
+    //                        var mesData = {};
+    //                        if (msg.msg_type == 1) {
+    //                            var msgContent = JSON.parse(msg.msg_content);
+    //                            // 	单聊
+    //                            switch (msg.command_type) {
+    //                                case 2:
+    //                                    var friend = new FriendData("friend", "http://tp1.sinaimg.cn/1571889140/180/40030060651/1", lastFromId, 1, lastFromId, "我是新来的！");
+
+    //                                    if (layui.jquery('.layim-friend' + friend.id).length == 0 && layui.layim.cache() && layui.layim.cache().id != friend.id) {
+    //                                        layui.layim.addList && layui.layim.addList(friend);
+    //                                        //设置在线状态
+    //                                        layui.layim.setFriendStatus && layui.layim.setFriendStatus(lastFromId, 'online');
+    //                                    }
+    //                                    var mesDa = new MesData(lastFromId, "http://tp1.sinaimg.cn/1571889140/180/40030060651/1", lastFromId, "friend", msgContent.msg, 0, false, lastFromId,(msg.msg_time)*1000);
+    //                                    layim.getMessage(mesDa);
+    //                                //    layui.layim.setFriendStatus && layui.layim.setFriendStatus(lastFromId, 'online');
+    //                                    break;
+    //                                case 3:
+    //                                    //	语音
+    //                                    //var audioContent = "<audio controls><source src=\"" + msgContent.url + "\" type=\"audio/ima4\"></audio>";
+    //                                    //$("#audioArea").html($("#audioArea").html() + audioContent);
+                                        
+    //                                    mesData.username = "黄慧";
+    //                                    mesData.avatar = "http://tp1.sinaimg.cn/1571889140/180/40030060651/1";
+    //                                    mesData.id = lastFromId;
+    //                                    mesData.type = "friend";
+    //                                    mesData.content = "audio["+msgContent.url+"]";
+    //                                    mesData.mine = false;
+    //                                    mesData.fromid = lastFromId;
+    //                                    mesData.timestamp = (msg.msg_time) * 1000;
+
+                                  
+    //                                    layim.getMessage(mesData);
+
+    //                                    break;
+    //                                case 4:
+    //                                    //	图片
+    //                                    //var imageContent = "<a href='" + msgContent.url + "' target='_blank'><img src=\"" + msgContent.url + "\" style='width: 50%; height: 50%;' /></a> ";
+    //                                    //$("#imageArea").html($("#imageArea").html() + imageContent);
+    //                                    mesData.username = "黄慧";
+    //                                    mesData.avatar = "http://tp1.sinaimg.cn/1571889140/180/40030060651/1";
+    //                                    mesData.id = lastFromId;
+    //                                    mesData.type = "friend";
+    //                                    mesData.content = "img["+msgContent.url+"]";
+    //                                    mesData.mine = false;
+    //                                    mesData.fromid = lastFromId;
+    //                                    mesData.timestamp = (msg.msg_time) * 1000;
+    //                                    layim.getMessage(mesData);
+
+    //                                    break;
+    //                            }
+
+    //                        }
+
+
+    //                    }
+    //                }
+    //                break;
+    //        }
+    //    }
+
+    //});
+
+    //var websocket;
+    //var lastFromId;
+    //var userId;
+    //window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+    //if (!window.WebSocket) {
+    //    alert("WebSocket not supported by this browser");
+    //};
+
+</script>
+</body>
+</html>

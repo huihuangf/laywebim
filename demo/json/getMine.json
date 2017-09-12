@@ -1,0 +1,12 @@
+﻿ {
+            "username": "LayIM体验者" //我的昵称
+            ,
+            "id": "100000123" //我的ID
+            ,
+            "status": "online" //在线状态 online：在线、hide：隐身
+            ,
+            "remark": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
+            ,
+            "avatar": "http://cdn.firstlinkapp.com/upload/2016_6/1465575923433_33812.jpg" //我的头像
+        }
+

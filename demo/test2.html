@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="../layui/css/layui.mobile.css">
+</head>
+<body>
+    <script src="../layui/layui.js"></script>
+<script>
+    layui.use('layim', function (layim) {
+        //初始化一个窗体
+        layim.config({
+            init: {
+                url: "json/test1.json",
+                data: {}
+            }
+        });
+        //建立WebSocket通讯
+        //注意：如果你要兼容ie8+，建议你采用 socket.io 的版本。下面是以原生WS为例
+        //初始化已经进行连接
+        websocket = new WebSocket("ws://192.168.8.90:20019/websocket");
+        //连接成功时触发
+        websocket.onopen = function () {   
+          //  websocket.send('XXX连接成功');
+            console.log("连接成功！");
+            //发送一个消息
+           websocket.send('Hi Server, I am LayIM!');
+          
+        };
+       
+       
+        //监听收到的消息
+        websocket.onmessage = function (res) {
+            console.log("我接听到消息了："+res.data);
+            //res为接受到的值，如 {"emit": "messageName", "data": {}}
+            //emit即为发出的事件名，用于区分不同的消息
+        };
+
+    });
+  
+    var websocket;
+    var lastFromId;
+    var userId;
+    window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+    if (!window.WebSocket) {
+        alert("WebSocket not supported by this browser");
+    };
+
+</script>
+</body>
+</html>
